@@ -36,19 +36,11 @@ function validation(year, month, day) {
     return false;
   }
 
-  if (userDateOfBirth.getFullYear() === year) {
-    return {
-      status: true,
-      code_status: 0,
-      message: "valid",
-    };
-  } else if (userDateOfBirth.getMonth() + 1 === month) {
-    return {
-      status: true,
-      code_status: 0,
-      message: "valid",
-    };
-  } else if (userDateOfBirth.getDate() === day) {
+  if (
+    userDateOfBirth.getFullYear() === year &&
+    userDateOfBirth.getMonth() + 1 === month &&
+    userDateOfBirth.getDate() === day
+  ) {
     return {
       status: true,
       code_status: 0,
@@ -63,7 +55,7 @@ function validation(year, month, day) {
   }
 }
 
-const date = validation(2020, 20, 2);
+const date = validation(2020, 45, 2);
 if (date.status) {
   console.log(date.message);
 } else {
