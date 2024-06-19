@@ -10,8 +10,66 @@
   <body class="bg-stone-200 h-screen flex justify-center items-center">
     <!-- The body of the calculator-->
     <main
-      class="bg-slate-100 w-1/2 h-4/6 min-w-[330px] p-5 rounded-2xl rounded-br-[130px] shadow-md"
-    ></main>
+      class="bg-white h-4/6 w-1/2 min-w-[330px] p-12 rounded-2xl rounded-br-[130px] shadow-md"
+    >
+      <form autocomplete="off">
+        <div class="flex gap-4 w-full mb-6">
+          <!-- Day input -->
+          <label for="day" class="w-full">
+            <div
+              class="block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest"
+            >
+              Day
+            </div>
+            <input
+              type="text"
+              id="day"
+              name="day"
+              placeholder="DD"
+              class="day-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600"
+            />
+            <!-- Day Error -->
+            <div class="Error-day text-light-red text-xs italic mt-2"></div>
+          </label>
+
+          <!-- Month input -->
+          <label for="month" class="w-full">
+            <div
+              class="block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest"
+            >
+              Month
+            </div>
+            <input
+              type="text"
+              id="month"
+              name="month"
+              placeholder="MM"
+              class="month-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600"
+            />
+            <!-- Month Error -->
+            <div class="Error-month text-light-red text-xs italic mt-2"></div>
+          </label>
+
+          <!-- Year input -->
+          <label for="year" class="w-full">
+            <div
+              class="block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest"
+            >
+              Year
+            </div>
+            <input
+              type="text"
+              id="year"
+              name="year"
+              placeholder="YYYY"
+              class="year-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600"
+            />
+            <!-- year Error -->
+            <div class="Error-year text-light-red text-xs italic mt-2"></div>
+          </label>
+        </div>
+      </form>
+    </main>
 
     <script src="./assets/js/app.js"></script>
   </body>
