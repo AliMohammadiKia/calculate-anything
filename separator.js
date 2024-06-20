@@ -11,9 +11,9 @@ convertBtn.addEventListener("click", (event) => {
 function calculateAge(year,month,day){
   const birthDate = new Date(year , month-1 , day);
   const today = new Date();
-  const ageYears = today.getFullYear() - birthDate.getFullYear();
-  const ageMonths = today.getMonth() - birthDate.getMonths();
-  const ageDays = today.getDate() - birthDate.getDate();
+  let ageYears = today.getFullYear() - birthDate.getFullYear();
+  let ageMonths = today.getMonth() - birthDate.getMonth();
+  let ageDays = today.getDate() - birthDate.getDate();
   if(ageMonths<0){
     ageYears--;
     ageMonths+=12;
@@ -28,3 +28,4 @@ function calculateAge(year,month,day){
     day : ageDays
   }
 }
+console.log(calculateAge(2003,11,3))
