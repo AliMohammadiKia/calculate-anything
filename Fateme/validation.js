@@ -23,21 +23,23 @@ function validate() {
   const inputs = document.querySelectorAll("input");
   let validator = true;
   inputs.forEach((i) => {
-    // const parent = i.parentElement;
     if (!i.value) {
       console.log("this field is required");
       validator = false;
-    } else if (monthInp.value > 12 || monthInp < 1) {
+    }else if (monthInp.value > 12 || monthInp < 1) {
       console.log("must be a valid month");
       validator = false;
     } else if (dayInp.value > 31 || dayInp.value < 1) {
       console.log("must be a valid date");
       validator = false;
+    } else  if (yearInp.value > year) {
+      console.log("the Date you entered is in  the future!!");
     } else {
       validator = true;
     }
   });
   return validator;
+  
 }
 
 function handleSubmit(e) {
@@ -51,11 +53,12 @@ function handleSubmit(e) {
       month = month + 12;
       year = year - 1;
     }
-    const d = day - dayInp.value;
-    const m = month - monthInp.value;
-    const y = year - yearInp.value;
 
-    yearOtp.innerHTML = y;
+    // const d = day - dayInp.value;
+    // const m = month - monthInp.value;
+    // const y = year - yearInp.value;
+
+    // yearOtp.innerHTML = y;
   }
 }
 handleSubmit();
