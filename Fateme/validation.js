@@ -1,55 +1,31 @@
 function validation(year, month, day) {
-    if (!day && !month && !year) {
-        return {
-            status: false,
-            message: "All field is required",
-          };
-    }
-    if (!year) {
-    return {
-      status: false,
-      message: "year field is required",
-    };
+   if (!day && !month && !year) {
+   return console.log("All field is required");
+  }
+  if (!year) {
+     console.log("year field is required");
   }
   if (!month) {
-    return {
-      status: false,
-      message: "month field is required",
-    };
+    console.log("month field is required");
   }
   if (!day) {
-    return {
-      status: false,
-      message: "day field is required",
-    };
+    console.log("day field is required");
   }
-  
+
   if (isNaN(day) || isNaN(month) || isNaN(year)) {
-    return {
-      status: false,
-      message: "Invalid input. Please enter numeric values.",
-    };
+    console.log("Invalid input. Please enter numeric values.");
   }
   if (month < 1 || month > 12) {
-    return {
-      status: false,
-      message: "Month must be between 1 and 12.",
-    };
+    console.log("Month must be between 1 and 12.");
   }
   if (day < 1 || day > 31) {
-    return {
-      status: false,
-      message: "Day must be between 1 and 31.",
-    };
+    console.log("Day must be between 1 and 31.");
   }
 
   const userDateOfBirth = new Date(year, month - 1, day);
 
   if (userDateOfBirth.getTime() > Date.now()) {
-    return {
-      status: false,
-      message: "the Date you entered is in future!!",
-    };
+    console.log("the Date you entered is in future!!");
   }
   if (
     userDateOfBirth.getFullYear() === year &&
@@ -70,7 +46,7 @@ function validation(year, month, day) {
   }
 }
 
-const date = validation(2020, 12, 2);
+const date = validation("2020", "", "");
 if (date.status) {
   console.log(date.message);
 } else {
