@@ -13,7 +13,7 @@
       class="bg-white h-4/6 w-1/2 min-w-[330px] p-12 rounded-2xl rounded-br-[130px] shadow-md"
     >
       <form autocomplete="off">
-        <div class="flex gap-4 w-full mb-6">
+        <div class="flex gap-4 w-9/12 mb-6">
           <!-- Day input -->
           <label for="day" class="w-full">
             <div
@@ -29,7 +29,7 @@
               class="day-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600"
             />
             <!-- Day Error -->
-            <div class="Error-day text-light-red text-xs italic mt-2"></div>
+            <div class="Error-day text-red-500 text-xs italic mt-2"></div>
           </label>
 
           <!-- Month input -->
@@ -47,7 +47,7 @@
               class="month-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600"
             />
             <!-- Month Error -->
-            <div class="Error-month text-light-red text-xs italic mt-2"></div>
+            <div class="Error-month text-red-500 text-xs italic mt-2"></div>
           </label>
 
           <!-- Year input -->
@@ -65,8 +65,29 @@
               class="year-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600"
             />
             <!-- year Error -->
-            <div class="Error-year text-light-red text-xs italic mt-2"></div>
+            <div class="Error-year text-red-500 text-xs italic mt-2"></div>
           </label>
+        </div>
+        <!-- separator -->
+        <div class="flex">
+          <hr class="w-11/12" />
+          <button
+            class="w-14 h-14 bg-purple-600 rounded-full -mt-6 flex items-center justify-center active:bg-black"
+            id="convertBtn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="30"
+              viewBox="0 0 46 44"
+            >
+              <g fill="none" stroke="#FFF" stroke-width="2">
+                <path
+                  d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"
+                />
+              </g>
+            </svg>
+          </button>
         </div>
       </form>
     </main>
