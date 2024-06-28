@@ -1,3 +1,56 @@
+//selecting the main element of the page
+const main = document.querySelector("main");
+//form should be here => before result section!!!!!!
+
+//result section start
+const resultSection = document.createElement("section");
+resultSection.classList =
+  "flex flex-col gap-y-4 font-[Poppins] italic font-extrabold text-center md:text-left text-4xl md:text-7xl mt-16";
+main.append(resultSection);
+//years new div
+const yearsDiv = document.createElement("div");
+yearsDiv.classList = "flex justify-start items-center";
+resultSection.append(yearsDiv);
+//first part of the years
+const firstLine = document.createElement("p");
+firstLine.innerText = "- -";
+firstLine.classList = "text-[#854dff] mr-2";
+yearsDiv.append(firstLine);
+//second part of the years
+const firstLineWord = document.createElement("p");
+firstLineWord.innerText = "years";
+firstLineWord.classList = "text-left";
+yearsDiv.append(firstLineWord);
+//months new div
+const monthsDiv = document.createElement("div");
+monthsDiv.classList = "flex justify-start items-center";
+resultSection.append(monthsDiv);
+//first part of the months
+const secondLine = document.createElement("p");
+secondLine.innerText = "- -";
+secondLine.classList = "text-[#854dff] mr-2";
+monthsDiv.append(secondLine);
+//second part of the months
+const secondLineWord = document.createElement("p");
+secondLineWord.innerText = "months";
+secondLineWord.classList = "text-left";
+monthsDiv.append(secondLineWord);
+//days new div
+const daysDiv = document.createElement("div");
+daysDiv.classList = "flex justify-start items-center";
+resultSection.append(daysDiv);
+//first part of the days
+const thirdLine = document.createElement("p");
+thirdLine.innerText = "- -";
+thirdLine.classList = "text-[#854dff] mr-2";
+daysDiv.append(thirdLine);
+//second part of the days
+const thirdLineWord = document.createElement("p");
+thirdLineWord.innerText = "days";
+thirdLineWord.classList = "text-left";
+daysDiv.append(thirdLineWord);
+//result section end
+
 //form selection
 const form = document.querySelector("form");
 // inputs
@@ -8,10 +61,6 @@ const yearInp = document.getElementById("year");
 const dayEr = document.querySelector(".Error-day");
 const monthEr = document.querySelector(".Error-month");
 const yearEr = document.querySelector(".Error-year");
-//The place of the result
-const ageYear = document.querySelector("#ageYear");
-const ageMonth = document.querySelector("#ageMonth");
-const ageDay = document.querySelector("#ageDay");
 //date of today
 const today = new Date();
 //function to check validation of user inputs
@@ -132,9 +181,9 @@ function handleSubmit(e) {
     );
     // return ageObject;
     //The calculated age will be placed instead of --
-    ageYear.innerText = ageObject.year;
-    ageMonth.innerText = ageObject.month;
-    ageDay.innerText = ageObject.day;
+    firstLine.innerText = ageObject.year;
+    secondLine.innerText = ageObject.month;
+    thirdLine.innerText = ageObject.day;
   } else {
     //change the color of input boxes
     dayInp.classList.remove("border-gray-300");
