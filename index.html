@@ -10,12 +10,12 @@
   <body class="bg-stone-200 h-screen flex justify-center items-center">
     <!-- The body of the calculator-->
     <main
-      class="bg-white h-4/6 w-1/2 min-w-[330px] p-12 rounded-2xl rounded-br-[130px] shadow-md"
+      class="bg-white p-6 md:p-12 rounded-2xl rounded-br-[50px] md:rounded-br-[130px] shadow-md w-full max-w-lg mx-auto md:max-w-3xl"
     >
       <form autocomplete="off">
-        <div class="flex gap-4 w-9/12 mb-6">
+        <div class="flex gap-4 w-full mb-6">
           <!-- Day input -->
-          <label for="day" class="w-full">
+          <label for="day" class="flex-1">
             <div
               class="block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest"
             >
@@ -33,7 +33,7 @@
           </label>
 
           <!-- Month input -->
-          <label for="month" class="w-full">
+          <label for="month" class="flex-1">
             <div
               class="block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest"
             >
@@ -51,7 +51,7 @@
           </label>
 
           <!-- Year input -->
-          <label for="year" class="w-full">
+          <label for="year" class="flex-1">
             <div
               class="block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest"
             >
@@ -69,11 +69,14 @@
           </label>
         </div>
         <!-- separator -->
-        <div class="flex">
-          <hr class="w-11/12" />
+        <div
+          class="flex items-center mt-6 button-container justify-center md:justify-end md:justify-center"
+        >
+          <hr class="w-full" />
           <button
-            class="w-14 h-14 bg-[#854dff] rounded-full -mt-6 flex items-center justify-center active:bg-black"
+            class="w-14 h-14 bg-[#854dff] rounded-full -mt-7 flex items-center justify-center active:bg-black absolute md:relative"
             id="convertBtn"
+            style="transform: translateY(50%)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -92,22 +95,22 @@
       </form>
       <!-- result section -->
       <section
-        class="flex flex-col gap-y-4 font-[Poppins] italic font-extrabold font-[Poppins] italic font-extrabold font-[Poppins] italic font-extrabold text-7xl"
+        class="flex flex-col gap-y-4 font-[Poppins] italic font-extrabold text-center md:text-left text-4xl md:text-7xl mt-16"
       >
         <!-- years -->
-        <div class="flex">
-          <p class="text-[#854dff]" id="ageYear">- -</p>
-          <p class="">years</p>
+        <div class="flex justify-start items-center">
+          <p class="text-[#854dff] mr-2" id="ageYear">- -</p>
+          <p class="text-left">years</p>
         </div>
         <!-- months -->
-        <div class="flex">
-          <p class="text-[#854dff]" id="ageMonth">- -</p>
-          <p>months</p>
+        <div class="flex justify-start items-center">
+          <p class="text-[#854dff] mr-2" id="ageMonth">- -</p>
+          <p class="text-left">months</p>
         </div>
         <!-- days -->
-        <div class="flex">
-          <p class="text-[#854dff]" id="ageDay">- -</p>
-          <p>days</p>
+        <div class="flex justify-start items-center">
+          <p class="text-[#854dff] mr-2" id="ageDay">- -</p>
+          <p class="text-left">days</p>
         </div>
       </section>
     </main>
