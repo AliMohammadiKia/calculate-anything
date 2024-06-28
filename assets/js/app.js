@@ -1,19 +1,19 @@
 //form selection
 const form = document.querySelector("form");
-
 // inputs
 const dayInp = document.getElementById("day");
 const monthInp = document.getElementById("month");
 const yearInp = document.getElementById("year");
-
 // Error messages
 const dayEr = document.querySelector(".Error-day");
 const monthEr = document.querySelector(".Error-month");
 const yearEr = document.querySelector(".Error-year");
-
+//The place of the result
+const ageYear = document.querySelector("#ageYear");
+const ageMonth = document.querySelector("#ageMonth");
+const ageDay = document.querySelector("#ageDay");
 //date of today
 const today = new Date();
-
 //function to check validation of user inputs
 function validate() {
   // Convert inputs to integers
@@ -120,7 +120,6 @@ function calculateAge(year, month, day) {
     day: ageDays,
   };
 }
-
 //function to handle submit
 function handleSubmit(e) {
   e.preventDefault();
@@ -131,7 +130,11 @@ function handleSubmit(e) {
       parseInt(monthInp.value, 10),
       parseInt(dayInp.value, 10)
     );
-    return ageObject;
+    // return ageObject;
+    //The calculated age will be placed instead of --
+    ageYear.innerText = ageObject.year;
+    ageMonth.innerText = ageObject.month;
+    ageDay.innerText = ageObject.day;
   } else {
     //change the color of input boxes
     dayInp.classList.remove("border-gray-300");
@@ -142,6 +145,5 @@ function handleSubmit(e) {
     yearInp.classList.add("border-red-300");
   }
 }
-
 //when the form is submitted the handleSubmit should execute
 form.addEventListener("submit", handleSubmit);
