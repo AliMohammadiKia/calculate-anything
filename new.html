@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="./assets/images/favicon-32x32.png" />
+
+    <!-- font family for result section -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- tailwind-css CDN link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-stone-200 h-screen flex justify-center items-center">
+    <!-- The body of the calculator-->
+    <main
+      class="bg-white p-6 md:p-12 rounded-2xl rounded-br-[50px] md:rounded-br-[130px] shadow-md w-full max-w-lg mx-auto md:max-w-3xl"
+    >
+      <form autocomplete="off">
+        <div class="flex gap-4 w-full mb-6">
+          <!-- Day input -->
+          <label for="day" class="flex-1">
+            <div
+              class="block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest"
+            >
+              Day
+            </div>
+            <input
+              type="text"
+              id="day"
+              name="day"
+              placeholder="DD"
+              class="day-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600"
+            />
+            <!-- Day Error -->
+            <div class="Error-day text-red-500 text-xs italic mt-2"></div>
+          </label>
+
+          <!-- Month input -->
+          <label for="month" class="flex-1">
+            <div
+              class="block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest"
+            >
+              Month
+            </div>
+            <input
+              type="text"
+              id="month"
+              name="month"
+              placeholder="MM"
+              class="month-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600"
+            />
+            <!-- Month Error -->
+            <div class="Error-month text-red-500 text-xs italic mt-2"></div>
+          </label>
+
+          <!-- Year input -->
+          <label for="year" class="flex-1">
+            <div
+              class="block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest"
+            >
+              Year
+            </div>
+            <input
+              type="text"
+              id="year"
+              name="year"
+              placeholder="YYYY"
+              class="year-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600"
+            />
+            <!-- year Error -->
+            <div class="Error-year text-red-500 text-xs italic mt-2"></div>
+            
+          </label>
+        </div>
+      </form>
+    </main>
+
+    <script src="./new.js"></script>
+  </body>
+</html>
