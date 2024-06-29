@@ -32,7 +32,7 @@ dayInput.classList =
 dayLabel.append(dayInput);
 
 const dayError = document.createElement("div");
-dayError.classList = "Error-day text-light-red text-xs italic mt-2";
+dayError.classList = "Error-day text-red-500 text-xs italic mt-2";
 dayLabel.append(dayError);
 
 // Month input
@@ -57,7 +57,7 @@ monthInput.classList =
 monthLabel.append(monthInput);
 
 const monthError = document.createElement("div");
-monthError.classList = "Error-month text-light-red text-xs italic mt-2";
+monthError.classList = "Error-month text-red-500 text-xs italic mt-2";
 monthLabel.append(monthError);
 
 // Year input
@@ -82,7 +82,7 @@ yearInput.classList =
 yearLabel.append(yearInput);
 
 const yearError = document.createElement("div");
-yearError.classList = "Error-year text-light-red text-xs italic mt-2";
+yearError.classList = "Error-year text-red-500 text-xs italic mt-2";
 yearLabel.append(yearError);
 // form end
 
