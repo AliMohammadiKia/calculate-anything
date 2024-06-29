@@ -2,48 +2,141 @@
 const main = document.querySelector("main");
 //form should be here => before result section!!!!!!
 
+// form start
+const formElement = document.createElement("form");
+main.prepend(formElement);
+
+const inputContainerElement = document.createElement("div");
+inputContainerElement.classList = "flex gap-4 w-full mb-6";
+formElement.append(inputContainerElement);
+
+// Day input
+const dayLabel = document.createElement("label");
+dayLabel.setAttribute("for", "day");
+dayLabel.classList = "w-full";
+inputContainerElement.append(dayLabel);
+
+const dayLabelText = document.createElement("div");
+dayLabelText.classList =
+  "block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest";
+dayLabelText.innerText = "Day";
+dayLabel.append(dayLabelText);
+
+const dayInput = document.createElement("input");
+dayInput.type = "text";
+dayInput.id = "day";
+dayInput.name = "day";
+dayInput.placeholder = "DD";
+dayInput.classList =
+  "day-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600";
+dayLabel.append(dayInput);
+
+const dayError = document.createElement("div");
+dayError.classList = "Error-day text-light-red text-xs italic mt-2";
+dayLabel.append(dayError);
+
+// Month input
+const monthLabel = document.createElement("label");
+monthLabel.setAttribute("for", "month");
+monthLabel.classList = "w-full";
+inputContainerElement.append(monthLabel);
+
+const monthLabelText = document.createElement("div");
+monthLabelText.classList =
+  "block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest";
+monthLabelText.innerText = "Month";
+monthLabel.append(monthLabelText);
+
+const monthInput = document.createElement("input");
+monthInput.type = "text";
+monthInput.id = "month";
+monthInput.name = "month";
+monthInput.placeholder = "MM";
+monthInput.classList =
+  "month-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600";
+monthLabel.append(monthInput);
+
+const monthError = document.createElement("div");
+monthError.classList = "Error-month text-light-red text-xs italic mt-2";
+monthLabel.append(monthError);
+
+// Year input
+const yearLabel = document.createElement("label");
+yearLabel.setAttribute("for", "year");
+yearLabel.classList = "w-full";
+inputContainerElement.append(yearLabel);
+
+const yearLabelText = document.createElement("div");
+yearLabelText.classList =
+  "block text-sm font-semibold text-gray-500 uppercase mb-2 tracking-widest";
+yearLabelText.innerText = "Year";
+yearLabel.append(yearLabelText);
+
+const yearInput = document.createElement("input");
+yearInput.type = "text";
+yearInput.id = "year";
+yearInput.name = "year";
+yearInput.placeholder = "YYYY";
+yearInput.classList =
+  "year-input w-full p-2 border border-gray-300 placeholder-gray-500 rounded-lg text-xl font-bold focus:outline-none focus:border-purple-600";
+yearLabel.append(yearInput);
+
+const yearError = document.createElement("div");
+yearError.classList = "Error-year text-light-red text-xs italic mt-2";
+yearLabel.append(yearError);
+// form end
+
 //result section start
 const resultSection = document.createElement("section");
 resultSection.classList =
   "flex flex-col gap-y-4 font-[Poppins] italic font-extrabold text-center md:text-left text-4xl md:text-7xl mt-16";
 main.append(resultSection);
+
 //years new div
 const yearsDiv = document.createElement("div");
 yearsDiv.classList = "flex justify-start items-center";
 resultSection.append(yearsDiv);
+
 //first part of the years
 const firstLine = document.createElement("p");
 firstLine.innerText = "- -";
 firstLine.classList = "text-[#854dff] mr-2";
 yearsDiv.append(firstLine);
+
 //second part of the years
 const firstLineWord = document.createElement("p");
 firstLineWord.innerText = "years";
 firstLineWord.classList = "text-left";
 yearsDiv.append(firstLineWord);
+
 //months new div
 const monthsDiv = document.createElement("div");
 monthsDiv.classList = "flex justify-start items-center";
 resultSection.append(monthsDiv);
+
 //first part of the months
 const secondLine = document.createElement("p");
 secondLine.innerText = "- -";
 secondLine.classList = "text-[#854dff] mr-2";
 monthsDiv.append(secondLine);
+
 //second part of the months
 const secondLineWord = document.createElement("p");
 secondLineWord.innerText = "months";
 secondLineWord.classList = "text-left";
 monthsDiv.append(secondLineWord);
+
 //days new div
 const daysDiv = document.createElement("div");
 daysDiv.classList = "flex justify-start items-center";
 resultSection.append(daysDiv);
+
 //first part of the days
 const thirdLine = document.createElement("p");
 thirdLine.innerText = "- -";
 thirdLine.classList = "text-[#854dff] mr-2";
 daysDiv.append(thirdLine);
+
 //second part of the days
 const thirdLineWord = document.createElement("p");
 thirdLineWord.innerText = "days";
