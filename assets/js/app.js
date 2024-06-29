@@ -86,10 +86,62 @@ yearError.classList = "Error-year text-light-red text-xs italic mt-2";
 yearLabel.append(yearError);
 // form end
 
+// separator section start
+const separator = document.createElement("div");
+separator.classList.add(
+  "flex",
+  "items-center",
+  "mt-8",
+  "md:mt-6",
+  "button-container",
+  "justify-center",
+  "md:justify-end",
+  "md:justify-center"
+);
+formElement.append(separator);
+const line = document.createElement("hr");
+line.classList.add("w-full");
+separator.append(line);
+const submitBtn = document.createElement("button");
+submitBtn.classList.add(
+  "w-14",
+  "h-14",
+  "bg-[#854dff]",
+  "rounded-full",
+  "-mt-7",
+  "flex",
+  "items-center",
+  "justify-center",
+  "active:bg-black",
+  "absolute",
+  "md:relative"
+);
+submitBtn.id = "convertBtn";
+submitBtn.style = "transform: translateY(25%)";
+separator.append(submitBtn);
+const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+icon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+icon.setAttribute("width", "25");
+icon.setAttribute("height", "30");
+icon.setAttribute("viewBox", "0 0 46 44");
+submitBtn.append(icon);
+const gTag = document.createElementNS("http://www.w3.org/2000/svg", "g");
+gTag.setAttribute("fill", "none");
+gTag.setAttribute("stroke", "#FFF");
+gTag.setAttribute("stroke-width", "2");
+icon.append(gTag);
+const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+path.setAttribute(
+  "d",
+  "M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"
+);
+gTag.append(path);
+// end separator section start
+
 //result section start
 const resultSection = document.createElement("section");
 resultSection.classList =
-  "flex flex-col gap-y-4 font-[Poppins] italic font-extrabold text-center md:text-left text-4xl md:text-7xl mt-16";
+  "flex flex-col gap-y-4 font-[Poppins] italic font-extrabold text-center md:text-left text-4xl md:text-7xl mt-12";
 main.append(resultSection);
 
 //years new div
@@ -159,9 +211,9 @@ const today = new Date();
 //function to check validation of user inputs
 function validate() {
   // Convert inputs to integers
-  const day = parseInt(dayInp.value, 10);
-  const month = parseInt(monthInp.value, 10);
-  const year = parseInt(yearInp.value, 10);
+  const day = parseInt(dayInp.value);
+  const month = parseInt(monthInp.value);
+  const year = parseInt(yearInp.value);
   // Reset error messages
   dayEr.innerText = "";
   monthEr.innerText = "";
