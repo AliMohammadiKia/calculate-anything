@@ -20,23 +20,40 @@ container.append(newDivOne, newDivTwo);
 //add font 
 body.style.fontFamily = "Plus Jakarta Sans"
 //create form
+const formEle = document.createElement("form");
+newDivOne.append(formEle);
+formEle.addEventListener("submit",(e) => {
+  e.preventDefault();
+  validation();
+})
 //create form header
 const formHeader = document.createElement("div");
-newDivOne.append(formHeader);
-formHeader.classList = "w-full flex mb-6 justify-between"
+formEle.append(formHeader);
+formHeader.classList = "w-full flex mb-6 justify-between flex-col sm:flex-row";
 //title
 const title = document.createElement("h1");
 formHeader.append(title);
 title.innerText = "Mortgage Calculator";
-title.classList = "font-semibold text-slate-800 "
+title.classList = "font-semibold text-slate-800 mb-2"
 //clear all button
 const clearBtn = document.createElement("button");
 formHeader.append(clearBtn);
 clearBtn.innerText = "Clear All";
-clearBtn.classList = "text-xs text-slate-500 border-b border-slate-400 font-medium";
+clearBtn.type = "button";
+clearBtn.classList = "text-xs text-slate-500 border-b border-slate-400 font-medium w-12 ";
+clearBtn.addEventListener("click",(e) => {
+  e.preventDefault();
+  amountInput.value = "";
+  termInput.value = "";
+  rateInput.value = "";
+  repaymentOption.checked = false;
+  interestOnlyOption.checked = false;
+  updateRadioStyle();
+  resetStyle()
+})
 //mortgage amount div
 const mortgageAmountDiv = document.createElement("div");
-newDivOne.append(mortgageAmountDiv);
+formEle.append(mortgageAmountDiv);
 const mortgageAmountp = document.createElement("p");
 mortgageAmountDiv.append(mortgageAmountp);
 mortgageAmountp.innerText = "Mortagage Amount";
@@ -44,27 +61,30 @@ mortgageAmountp.classList = "font-medium text-slate-500 text-xs";
 //mortgage amount input box
 const amountInputBox = document.createElement("div");
 mortgageAmountDiv.append(amountInputBox);
-amountInputBox.classList = "flex mt-2 border border-slate-400 rounded-sm";
+amountInputBox.classList = "flex mt-2 border border-slate-400 rounded";
 const euroBox = document.createElement("label");
 amountInputBox.append(euroBox);
 euroBox.setAttribute("for","amountInput");
-euroBox.classList = "bg-[#e3f3fd] w-9 h-9 flex justify-center items-center ";
+euroBox.classList = "bg-[#e3f3fd] w-9 h-9 flex justify-center items-center rounded-s";
 const euroSign = document.createElement("p");
 euroBox.append(euroSign);
 euroSign.innerText = '£';
 euroSign.classList = "font-semibold text-sm text-slate-500";
 const amountInput = document.createElement("input");
 amountInputBox.append(amountInput);
-amountInput.classList = "w-full focus:outline-none px-3 text-sm text-slate-800 font-semibold";
+amountInput.classList = "w-full focus:outline-none px-3 text-sm text-slate-800 font-semibold rounded-e";
 amountInput.setAttribute("id","amountInput");
+const amountEr = document.createElement("div");
+mortgageAmountDiv.append(amountEr);
+amountEr.classList ="text-[#d73328] mt-2 text-xs";
 //mortgage term and interest rate section
 const termAndRate = document.createElement("div");
-newDivOne.append(termAndRate);
-termAndRate.classList = "mt-5 w-full flex justify-between"
+formEle.append(termAndRate);
+termAndRate.classList = "mt-5 w-full flex justify-between flex-col sm:flex-row"
 //mortgage term div
 const mortgageTerm = document.createElement("div");
 termAndRate.append(mortgageTerm);
-mortgageTerm.classList = "w-[48%]";
+mortgageTerm.classList = "sm:w-[48%] sm:mb-0 mb-6";
 const mortgageTermP = document.createElement("p");
 mortgageTerm.append(mortgageTermP);
 mortgageTermP.innerText = "Mortgage Term";
@@ -73,21 +93,24 @@ const termInputBox = document.createElement("div");
 mortgageTerm.append(termInputBox);
 const termInput = document.createElement("input");
 termInputBox.append(termInput);
-termInput.classList = "w-8/12 focus:outline-none px-3 text-sm text-slate-800 font-semibold"
-termInputBox.classList = "flex border border-slate-400 rounded-sm";
+termInput.classList = "w-8/12 focus:outline-none px-3 text-sm text-slate-800 font-semibold rounded-s"
+termInputBox.classList = "flex border border-slate-400 rounded";
 termInput.setAttribute("id","termInput");
 const yearsBox = document.createElement("label");
 termInputBox.append(yearsBox);
 yearsBox.setAttribute("for","termInput");
-yearsBox.classList = "w-4/12 h-9 bg-[#e3f3fd] flex justify-center items-center";
+yearsBox.classList = "w-4/12 h-9 bg-[#e3f3fd] flex justify-center items-center rounded-e";
 const yearSign = document.createElement("p");
 yearsBox.append(yearSign);
 yearSign.innerText = "years";
 yearSign.classList = "font-semibold text-sm text-slate-500";
+const termEr = document.createElement("div");
+mortgageTerm.append(termEr);
+termEr.classList ="text-[#d73328] mt-2 text-xs";
 //interest Rate div
 const interestRate = document.createElement("div");
 termAndRate.append(interestRate);
-interestRate.classList = "w-[48%]";
+interestRate.classList = "sm:w-[48%]";
 const interestP = document.createElement("p");
 interestRate.append(interestP);
 interestP.innerText = "Interest Rate";
@@ -96,20 +119,23 @@ const rateInputBox = document.createElement("div");
 interestRate.append(rateInputBox);
 const rateInput = document.createElement("input");
 rateInputBox.append(rateInput);
-rateInput.classList = "w-9/12 focus:outline-none px-3 text-sm text-slate-800 font-semibold";
-rateInputBox.classList = "flex border border-slate-400 rounded-sm";
+rateInput.classList = "w-9/12 focus:outline-none px-3 text-sm text-slate-800 font-semibold rounded-s";
+rateInputBox.classList = "flex border border-slate-400 rounded";
 rateInput.setAttribute("id","rateInput");
 const percentBox = document.createElement("label");
 rateInputBox.append(percentBox);
 percentBox.setAttribute("for","rateInput");
-percentBox.classList = "w-3/12 h-9 bg-[#e3f3fd] flex justify-center items-center";
+percentBox.classList = "w-3/12 h-9 bg-[#e3f3fd] flex justify-center items-center rounded-e";
 const percentSign = document.createElement("p");
 percentBox.append(percentSign);
 percentSign.innerText = "%";
 percentSign.classList = "font-semibold text-sm text-slate-500";
+const rateEr = document.createElement("div");
+interestRate.append(rateEr);
+rateEr.classList ="text-[#d73328] mt-2 text-xs";
 //mortgage type
 const mortgageType = document.createElement("div");
-newDivOne.append(mortgageType);
+formEle.append(mortgageType);
 mortgageType.classList = "mt-5";
 const mortgageTypeP = document.createElement("p");
 mortgageType.append(mortgageTypeP);
@@ -117,10 +143,10 @@ mortgageTypeP.innerText = "Mortgage Type";
 mortgageTypeP.classList = "font-medium text-slate-500 text-xs mb-2";
 const repaymentDiv = document.createElement("div");
 mortgageType.append(repaymentDiv);
-repaymentDiv.classList = "w-full h-9 border border-slate-400 rounded-sm mb-2 ps-4 pt-1";
+repaymentDiv.classList = "w-full h-9 border border-slate-400 rounded mb-2 ps-4 pt-1";
 const interestOnlyDiv = document.createElement("div");
 mortgageType.append(interestOnlyDiv);
-interestOnlyDiv.classList = "w-full h-9 border border-slate-400 rounded-sm ps-4 pt-1";
+interestOnlyDiv.classList = "w-full h-9 border border-slate-400 rounded ps-4 pt-1";
 const repaymentOption = document.createElement("input");
 repaymentDiv.append(repaymentOption);
 repaymentOption.type = "radio";
@@ -143,9 +169,12 @@ interestOnlyDiv.append(interestLabel);
 interestLabel.innerText = "Interest Only";
 interestLabel.setAttribute("for","interest-only");
 interestLabel.classList = "ml-4 text-slate-700 font-semibold text-sm";
+const typeEr = document.createElement("div");
+mortgageType.append(typeEr);
+typeEr.classList ="text-[#d73328] mt-2 text-xs";
 //calculate repayments button
 const cRBtn = document.createElement("button");
-newDivOne.append(cRBtn);
+formEle.append(cRBtn);
 cRBtn.classList = "mt-8 bg-[#d7da2f] w-64 flex h-10 rounded-3xl pl-8 pt-2";
 const calculatorIcon = document.createElementNS("http://www.w3.org/2000/svg","svg");
 cRBtn.append(calculatorIcon);
@@ -200,27 +229,115 @@ rateInput.addEventListener("blur",() => {
 })
 function updateRadioStyle(){
   if(repaymentOption.checked){
-    repaymentDiv.classList.remove("border-slate-400");
-    repaymentDiv.classList.add("border-[#d7da2f]");
+    repaymentDiv.classList.replace("border-slate-400", "border-[#d7da2f]");
     repaymentDiv.classList.remove("bg-white");
-    repaymentDiv.classList.add("bg-[#ffffcc]");
-    interestOnlyDiv.classList.remove("border-[#d7da2f]");
-    interestOnlyDiv.classList.add("border-slate-400");
-    interestOnlyDiv.classList.remove("bg-[#ffffcc]");
+    repaymentDiv.classList.add("bg-[#fbfbeb]");
+    interestOnlyDiv.classList.replace("border-[#d7da2f]", "border-slate-400");
+    interestOnlyDiv.classList.remove("bg-[#fbfbeb]");
     interestOnlyDiv.classList.add("bg-white");
+    repaymentOption.classList.add("accent-[#d7da2f]");
+    repaymentOption.classList.add("")
   }else if(interestOnlyOption.checked){
-    repaymentDiv.classList.remove("border-[#d7da2f]");
-    repaymentDiv.classList.add("border-slate-400");
-    repaymentDiv.classList.remove("bg-[#ffffcc]");
+    repaymentDiv.classList.replace("border-[#d7da2f]", "border-slate-400");
+    repaymentDiv.classList.remove("bg-[#fbfbeb]");
     repaymentDiv.classList.add("bg-white");
-    interestOnlyDiv.classList.remove("border-slate-400");
-    interestOnlyDiv.classList.add("border-[#d7da2f]");
+    interestOnlyDiv.classList.replace("border-slate-400", "border-[#d7da2f]");
     interestOnlyDiv.classList.remove("bg-white");
-    interestOnlyDiv.classList.add("bg-[#ffffcc]");
+    interestOnlyDiv.classList.add("bg-[#fbfbeb]");
+    interestOnlyOption.classList.add("accent-[#d7da2f]");
+  }else{
+    repaymentDiv.classList.replace("border-[#d7da2f]", "border-slate-400");
+    repaymentDiv.classList.remove("bg-[#fbfbeb]");
+    repaymentDiv.classList.add("bg-white");
+    interestOnlyDiv.classList.replace("border-[#d7da2f]", "border-slate-400");
+    interestOnlyDiv.classList.remove("bg-[#fbfbeb]");
+    interestOnlyDiv.classList.add("bg-white");
   }
 }
-repaymentOption.addEventListener("change",updateRadioStyle);
-interestOnlyOption.addEventListener("change",updateRadioStyle);
-///************************************************************************************** */
-//hover and active and functionality of buttons and responsive and validation function******************************
-///************************************************************************************** */
+repaymentDiv.addEventListener("click",() => {
+  repaymentOption.checked = true;
+  updateRadioStyle();
+})
+interestOnlyDiv.addEventListener("click",() => {
+  interestOnlyOption.checked = true;
+  updateRadioStyle();
+})
+//function for checking the validation of user's inputs
+let areValidInputs = true;
+function validation() {
+  if(!amountInput.value){
+    amountEr.innerText = "This feild is required";
+    amountInputBox.classList.replace("border-slate-400","border-[#d73328]");
+    euroBox.classList.remove("bg-[#e3f3fd]");
+    euroBox.classList.add("bg-[#d73328]");
+    euroSign.classList.replace("text-slate-500","text-white");
+    areValidInputs = false;
+  }
+  if(!termInput.value){
+    termEr.innerText = "This feild is required";
+    termInputBox.classList.replace("border-slate-400","border-[#d73328]");
+    yearsBox.classList.remove("bg-[#e3f3fd]");
+    yearsBox.classList.add("bg-[#d73328]");
+    yearSign.classList.replace("text-slate-500","text-white");
+    areValidInputs = false;
+  }
+  if(!rateInput.value){
+    rateEr.innerText = "This feild is required";
+    rateInputBox.classList.replace("border-slate-400","border-[#d73328]");
+    percentBox.classList.remove("bg-[#e3f3fd]");
+    percentBox.classList.add("bg-[#d73328]");
+    percentSign.classList.replace("text-slate-500","text-white");
+    areValidInputs = false;
+  }
+  if(!repaymentOption.checked && !interestOnlyOption.checked){
+    typeEr.innerText = "This feild is required";
+    areValidInputs = false;
+  }
+  if(isNaN(amountInput.value) || amountInput.value<0){
+    amountEr.innerText = "Invalid value";
+    amountInputBox.classList.replace("border-slate-400","border-[#d73328]");
+    euroBox.classList.remove("bg-[#e3f3fd]");
+    euroBox.classList.add("bg-[#d73328]");
+    euroSign.classList.replace("text-slate-500","text-white");
+    areValidInputs = false;
+  }
+  if(isNaN(termInput.value) || termInput.value<0){
+    termEr.innerText = "Invalid value";
+    termInputBox.classList.replace("border-slate-400","border-[#d73328]");
+    yearsBox.classList.remove("bg-[#e3f3fd]");
+    yearsBox.classList.add("bg-[#d73328]");
+    yearSign.classList.replace("text-slate-500","text-white");
+    areValidInputs = false;
+  }
+  if(isNaN(rateInput.value) || rateInput.value<0){
+    rateEr.innerText = "Invalid value";
+    rateInputBox.classList.replace("border-slate-400","border-[#d73328]");
+    percentBox.classList.remove("bg-[#e3f3fd]");
+    percentBox.classList.add("bg-[#d73328]");
+    percentSign.classList.replace("text-slate-500","text-white");
+    areValidInputs = false;
+  }
+}
+//reset style function
+function resetStyle() {
+  if(!areValidInputs){
+    areValidInputs = true;
+    amountEr.innerText = "";
+    amountInputBox.classList.replace("border-[#d73328]","border-slate-400");
+    euroBox.classList.remove("bg-[#d73328]");
+    euroBox.classList.add("bg-[#e3f3fd]");
+    euroSign.classList.replace("text-white","text-slate-500");
+    termEr.innerText = "";
+    termInputBox.classList.replace("border-[#d73328]","border-slate-400");
+    yearsBox.classList.remove("bg-[#d73328]");
+    yearsBox.classList.add("bg-[#e3f3fd]");
+    yearSign.classList.replace("text-white","text-slate-500");
+    rateEr.innerText = "";
+    rateInputBox.classList.replace("border-[#d73328]","border-slate-400");
+    percentBox.classList.remove("bg-[#d73328]");
+    percentBox.classList.add("bg-[#e3f3fd]");
+    percentSign.classList.replace("text-white","text-slate-500");
+    typeEr.innerText = "";
+  }
+  
+}
