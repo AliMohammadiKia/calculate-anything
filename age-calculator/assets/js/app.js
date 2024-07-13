@@ -300,13 +300,13 @@ function calculateAge(year, month, day) {
   let ageYears = today.getFullYear() - birthDate.getFullYear();
   let ageMonths = today.getMonth() - birthDate.getMonth();
   let ageDays = today.getDate() - birthDate.getDate();
-  if (ageMonths < 0) {
-    ageYears--;
-    ageMonths += 12;
-  }
   if (ageDays < 0) {
     ageMonths--;
     ageDays += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+  }
+  if (ageMonths < 0) {
+    ageYears--;
+    ageMonths += 12;
   }
   return {
     year: ageYears,
