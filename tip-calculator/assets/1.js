@@ -32,8 +32,7 @@ div2.classList = "rounded-2xl col-span-2 sm:col-span-1 div2";
 div2.style.backgroundColor = "hsl(183, 100%, 15%)";
 main.appendChild(div2);
 
-// const main = document.querySelector("main")
-// main.classList="grid grid-rows-[200px_minmax(900px,_1fr)_100px]"
+
 
 // -----------
 
@@ -148,10 +147,10 @@ divp3.appendChild(error);
 error.textContent = "number of people is wrong";
 
 // --------for result section
-let tipPerPERSON = document.createElement("p");
-div2.appendChild(tipPerPERSON);
-let totalPerPerson = document.createElement("p");
-div2.appendChild(totalPerPerson);
+// let tipPerPERSON = document.createElement("p");
+// div2.appendChild(tipPerPERSON);
+// let totalPerPerson = document.createElement("p");
+// div2.appendChild(totalPerPerson);
 
 // ------
 billinput.addEventListener("input", billInputFunc);
@@ -216,3 +215,105 @@ function calculateTip() {
   }
   // console.log(calculateTip);
 }
+
+
+
+const parent = document.createElement("div")
+parent.classList="pt-10 px-5 grid grid-rows-2 gap-10"
+div2.appendChild(parent)
+
+
+
+const div3 = document.createElement("div")
+div3.classList=" col-span-2  grid grid-cols-2 "
+parent.appendChild(div3)
+
+
+const div5 = document.createElement("div")
+div5.classList="col-span-1 "
+div3.appendChild(div5)
+
+const firsp = document.createElement("p")
+firsp.classList="text-white  text-sm font-bold mb-1 md:text-xs"
+firsp.textContent="Tip Amount"
+div5.appendChild(firsp)
+
+
+const secondp = document.createElement("p")
+secondp.classList="  text-xs font-bold"
+secondp.textContent="/ person"
+secondp.style.color="hsl(184, 14%, 56%)"
+div5.appendChild(secondp)
+
+const tipPerPERSON = document.createElement("div")
+tipPerPERSON.classList=" font-bold  col-span-1 px-3 md:text-3xl sm:text-2xl text-4xl"
+tipPerPERSON.style.color="hsl(172, 67%, 45%)"
+tipPerPERSON.textContent="$0.00"
+div3.appendChild(tipPerPERSON)
+
+
+
+
+
+
+
+
+
+
+
+
+
+const div4 = document.createElement("div")
+div4.classList="col-span-2  grid grid-cols-2 "
+parent.appendChild(div4)
+
+
+const div7 = document.createElement("div")
+div7.classList="col-span-1 "
+div4.appendChild(div7)
+
+const firsp2 = document.createElement("p")
+firsp2 .classList="text-white  text-sm font-bold mb-1"
+firsp2 .textContent="Total"
+div7.appendChild(firsp2)
+
+const secondp2= document.createElement("p")
+secondp2.classList="  text-xs font-bold"
+secondp2.textContent="/ person"
+secondp2.style.color="hsl(184, 14%, 56%)"
+div7.appendChild(secondp2)
+
+const totalPerPerson = document.createElement("div")
+totalPerPerson.classList="  font-bold  col-span-1  px-3 md:text-3xl sm:text-2xl text-4xl "
+totalPerPerson.style.color="hsl(172, 67%, 45%)"
+totalPerPerson.textContent="$0.00"
+div4.appendChild(totalPerPerson)
+
+
+
+
+
+
+
+
+
+
+
+
+
+const btn = document.createElement("button")
+btn.classList="col-span-2 rounded font-bold py-2 mt-12 mb-4"
+btn.textContent="RESET"
+btn.style.color="hsl(187, 10%, 32%)"
+btn.style.backgroundColor="hsl(172, 67%, 45%)"
+parent.appendChild(btn)
+
+
+btn.addEventListener("click",()=>{
+  billinput.value = 0.0;
+  billInputFunc()
+  peopleinput.value = 1;
+  peopleinputFunc()
+  tipamount6.value =" "
+ 
+})
