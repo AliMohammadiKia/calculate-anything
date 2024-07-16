@@ -45,7 +45,7 @@ divcontainer.appendChild(divp1);
 div1.classList = " justify-between justify-items-stretch items-center w-11/12";
 const divp2 = document.createElement("div");
 divcontainer.appendChild(divp2);
-div2.classList = " justify-between justify-items-stretch items-center";
+divp2.classList = " justify-between justify-items-stretch items-center";
 const divp3 = document.createElement("div");
 divcontainer.appendChild(divp3);
 divp3.classList = " justify-between justify-items-stretch items-center ";
