@@ -19,7 +19,7 @@ const main = document.createElement("main");
 
 //top image
 const topImg = document.createElement("img");
-topImg.src = "./assets/images/top.png";
+topImg.src = "./intro-page/assets/images/top.png";
 topImg.setAttribute("alt", "top image");
 topImg.classList = "absolute left-0 top-0 lg:w-[60%] md:w-[70%] w-[80%]";
 
@@ -32,7 +32,7 @@ ageLink.classList =
 
 //age image
 const ageImg = document.createElement("img");
-ageImg.src = "./assets/images/Slice 1.svg";
+ageImg.src = "./intro-page/assets/images/Slice 1.svg";
 ageImg.alt = "age";
 ageImg.classList =
   "drop-shadow-sm xl:size-[200px] lg:size-[170px] md:size-[140px] sm:size-[140px] size-[110px]";
@@ -53,7 +53,7 @@ mortgageLink.classList =
   "absolute xl:top-[11%] lg:top-[8%] md:top-[9%] sm:top-[8%] top-[4%] 2xl:left-[32%] lg:left-[28%] md:left-[31%] sm:left-[35%] left-[37%]";
 //mortgage image
 const mortgageImg = document.createElement("img");
-mortgageImg.src = "./assets/images/Slice 2.svg";
+mortgageImg.src = "./intro-page/assets/images/Slice 2.svg";
 mortgageImg.alt = "mortgage repayment";
 mortgageImg.classList =
   "drop-shadow-sm xl:size-[250px] lg:size-[220px] md:size-[190px] sm:size-[190px] size-[130px]";
@@ -68,7 +68,7 @@ mortgageLink.style.transition = "all 0.3s";
 
 //bottom image
 const bottomImg = document.createElement("img");
-bottomImg.src = "./assets/images/bottom.png";
+bottomImg.src = "./intro-page/assets/images/bottom.png";
 bottomImg.alt = "bottom image";
 bottomImg.classList =
   "absolute right-0 bottom-[20%] lg:w-[55%] md:w-[65%] w-[75%]";
@@ -86,7 +86,7 @@ if (document.documentElement.scrollHeight === 1366) {
 
 //tip image
 const tipImg = document.createElement("img");
-tipImg.src = "./assets/images/Slice 3.svg";
+tipImg.src = "./intro-page/assets/images/Slice 3.svg";
 tipImg.alt = "tip";
 tipImg.classList =
   "drop-shadow-sm xl:size-[200px] lg:size-[170px] md:size-[140px] sm:size-[140px] size-[110px]";
@@ -100,19 +100,20 @@ tipLink.addEventListener("mouseleave", () => {
 tipLink.style.transition = "all 0.3s";
 
 //creating footer
-const footer = document.createElement("footer");
-footer.classList = "absolute bottom-3";
+// const footer = document.createElement("footer");
+// footer.classList = "absolute bottom-3";
 
 //footer link
-const footerLink = document.createElement("a");
-footerLink.innerText = "Contact us";
-footerLink.classList = "text-gray-500";
+// const footerLink = document.createElement("a");
+// footerLink.innerText = "Contact us";
+// footerLink.classList = "text-gray-500";
 
 //appending elements
-footer.append(footerLink);
+// footer.append(footerLink);
 tipLink.append(tipImg);
 mortgageLink.append(mortgageImg);
 ageLink.append(ageImg);
 main.append(topImg, ageLink, mortgageLink, bottomImg, tipLink);
 header.append(title);
-body.append(header, main, footer);
+body.append(header, main);
+// body.append(header, main, footer);
